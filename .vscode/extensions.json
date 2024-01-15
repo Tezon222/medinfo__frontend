@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"dbaeumer.vscode-eslint", // ESLint
+		"esbenp.prettier-vscode", // Prettier - Code formatter
+		"ionutvmi.path-autocomplete", // Path Intellisense,
+		"eamodio.gitlens", // GitLens — Git supercharged
+		"formulahendry.auto-rename-tag" // Auto Rename Tag
+	]
+}
