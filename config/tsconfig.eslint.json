@@ -5,5 +5,5 @@
 		"composite": true
 	},
 
-	"include": ["../app/**/*.ts", "../app/**/*.tsx", "../*.mjs", "../*.js", "../*.ts"]
+	"include": ["../src/**/*", "../**/*"]
 }

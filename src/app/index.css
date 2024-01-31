@@ -2,21 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* ------------------*/
+/* Custom Properties */
+/*-------------------*/
 @layer base {
+	:root {
+		--color-primary: hsl(150, 20%, 25%);
+		--color-primary-darker: hsl(150, 21%, 17%);
+		--color-primary-lighter: hsl(150, 19%, 48%);
+		--color-primary-subtle: hsl(150, 19%, 48%);
+	}
+}
 
+/* ------------------*/
+/* General CSS Reset */
+/*-------------------*/
 
-	/* ------------------*/
-	/* General CSS Reset */
-	/*-------------------*/
+@layer base {
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
 	}
-
-	/* -------------------------- */
-	/* Making basic style resets */
-	/* ------------------------- */
 
 	html {
 		height: 100%;
@@ -47,14 +55,9 @@
 		outline: transparent;
 	}
 
-	/* Enabling theme transition */
-	:where(html.theme-transition *) {
-		transition: background-color 500ms ease-in-out;
-	}
 
 	body {
 		font-size: 1.6rem;
-		/* background-color: var(--color-body);
-		color: var(--text-body); */
+		font-family: theme("fontFamily.work-sans");
 	}
 }
