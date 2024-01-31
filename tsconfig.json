@@ -5,6 +5,10 @@
 		"module": "ESNext",
 		"useDefineForClassFields": true,
 		"skipLibCheck": true,
+		"paths": {
+			"@/*": ["./src/*"],
+			"@public/*": ["./public/*"]
+		},
 		"baseUrl": ".",
 
 		/* Next Bundler mode */
@@ -15,6 +19,11 @@
 		"esModuleInterop": true,
 		"moduleDetection": "force",
 		"verbatimModuleSyntax": true,
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
 		"incremental": true,
 		"noEmit": true,
 		"jsx": "preserve",
@@ -27,17 +36,9 @@
 		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true,
 		"noErrorTruncation": true,
-		"noUncheckedIndexedAccess": true,
-		"plugins": [
-			{
-				"name": "next"
-			}
-		],
-		"paths": {
-			"@/*": ["./*"]
-		}
+		"noUncheckedIndexedAccess": true
 	},
 
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "page.js", "app/index.js"],
+	"include": ["src/**/*.ts", "src/**/*.tsx", "./public/**/*.tsx", "./*.ts", ".next/types/**/*.ts"],
 	"exclude": ["node_modules"]
 }
