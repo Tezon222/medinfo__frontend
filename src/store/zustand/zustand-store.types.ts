@@ -1,4 +1,4 @@
-import type { MEDIA_QUERY_LOOKUP } from "./mediaQueryStore.utils";
+import type { MEDIA_QUERY_LOOKUP } from "./zustand-constants";
 
 export type MediaQueryStore = {
 	isMobile: boolean;
