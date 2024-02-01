@@ -10,8 +10,16 @@ const stateObjectFn: StateCreator<MediaQueryStore> = (set, get) => ({
 	isDesktop: desktopQuery.matches,
 
 	actions: {
-		initQueryListeners: () => {
+		handleQueryListeners: (action) => {
 			const { setQuery } = get().actions;
+
+			if (action === "remove") {
+				mobileQuery.removeEventListener("change", setQuery("mobile"));
+				tabletQuery.removeEventListener("change", setQuery("tablet"));
+				desktopQuery.removeEventListener("change", setQuery("desktop"));
+
+				return;
+			}
 
 			mobileQuery.addEventListener("change", setQuery("mobile"));
 			tabletQuery.addEventListener("change", setQuery("tablet"));
@@ -19,21 +27,24 @@ const stateObjectFn: StateCreator<MediaQueryStore> = (set, get) => ({
 		},
 
 		setQuery: (query) => () => {
-			const queryKey = MEDIA_QUERY_LOOKUP[query].key;
-			const newQueryState = MEDIA_QUERY_LOOKUP[query].queryList.matches;
+			const { queryKey, queryList } = MEDIA_QUERY_LOOKUP[query];
 
-			set({ [queryKey]: newQueryState });
+			set({ [queryKey]: queryList.matches });
 		},
 	},
 });
 
-export const mediaStoreHook = create<MediaQueryStore>()(stateObjectFn);
+const useInitMediaStore = create<MediaQueryStore>()(stateObjectFn);
 
 export const useMediaQuery = <TState>(selector: SelectorFn<TState>) => {
-	const state = mediaStoreHook(useShallow(selector));
+	const state = useInitMediaStore(useShallow(selector));
+
+	const { handleQueryListeners } = useInitMediaStore.getState().actions;
 
 	useEffect(() => {
-		mediaStoreHook.getState().actions.initQueryListeners();
+		handleQueryListeners("add");
+
+		return () => handleQueryListeners("remove");
 	}, []);
 
 	return state;

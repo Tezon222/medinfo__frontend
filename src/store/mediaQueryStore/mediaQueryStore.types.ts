@@ -7,8 +7,8 @@ export type MediaQueryStore = {
 
 	actions: {
 		setQuery: (query: keyof typeof MEDIA_QUERY_LOOKUP) => () => void;
-		initQueryListeners: () => void;
+		handleQueryListeners: (action: "add" | "remove") => void;
 	};
 };
 
-export type SelectorFn<TState> = (state: MediaQueryStore) => TState;
+export type SelectorFn<TState, TStore = MediaQueryStore> = (state: TStore) => TState;

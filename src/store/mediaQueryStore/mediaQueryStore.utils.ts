@@ -1,26 +1,30 @@
 import { isBrowser } from "@/lib/utils/constants";
 
-const placeholderQuerylist = { matches: false, addEventListener: () => {} };
+const fakeMediaQueryList = {
+	matches: false,
+	addEventListener: () => {},
+	removeEventListener: () => {},
+};
 
-export const mobileQuery = isBrowser ? window.matchMedia("(max-width: 767px)") : placeholderQuerylist;
+export const mobileQuery = isBrowser ? window.matchMedia("(max-width: 767px)") : fakeMediaQueryList;
 
-export const tabletQuery = isBrowser ? window.matchMedia("(min-width: 768px)") : placeholderQuerylist;
+export const tabletQuery = isBrowser ? window.matchMedia("(min-width: 768px)") : fakeMediaQueryList;
 
-export const desktopQuery = isBrowser ? window.matchMedia("(min-width: 1000px)") : placeholderQuerylist;
+export const desktopQuery = isBrowser ? window.matchMedia("(min-width: 1000px)") : fakeMediaQueryList;
 
 export const MEDIA_QUERY_LOOKUP = {
 	mobile: {
-		key: "isMobile",
+		queryKey: "isMobile",
 		queryList: mobileQuery,
 	} as const,
 
 	tablet: {
-		key: "isTablet",
+		queryKey: "isTablet",
 		queryList: tabletQuery,
 	} as const,
 
 	desktop: {
-		key: "isDesktop",
+		queryKey: "isDesktop",
 		queryList: desktopQuery,
 	} as const,
 };
