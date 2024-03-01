@@ -21,6 +21,7 @@
 		"plugin:sonarjs/recommended",
 		"plugin:unicorn/recommended",
 		"plugin:@next/next/recommended",
+		"next/core-web-vitals",
 		"prettier"
 	],
 
