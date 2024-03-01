@@ -1,4 +1,4 @@
-import NavBar from "./components/NavBar";
+import NavBar from "./_components/NavBar";
 
 function GlobalLayout({ children }: { children: React.ReactNode }) {
 	return (
