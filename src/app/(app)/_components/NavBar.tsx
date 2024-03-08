@@ -17,11 +17,11 @@ function NavBar() {
 			</nav>
 
 			<div className="flex shrink-0 items-center gap-[3.2rem] max-lg:hidden">
-				<button className="rounded-[8px] border-2 border-primary lg:p-[2rem]">
+				<button className="border-medinfo-primary rounded-[8px] border-2 lg:p-[2rem]">
 					<SearchIcon />
 				</button>
 
-				<button className="rounded-[8px] bg-primary font-medium text-white lg:px-[3.2rem] lg:py-[1.8rem] lg:text-[2rem]">
+				<button className="bg-medinfo-primary rounded-[8px] font-medium text-white lg:px-[3.2rem] lg:py-[1.8rem] lg:text-[2rem]">
 					Join Us
 				</button>
 			</div>

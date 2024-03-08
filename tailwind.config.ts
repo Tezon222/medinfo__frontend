@@ -13,16 +13,20 @@ const tailwindConfig = {
 
 		extend: {
 			colors: {
-				primary: "var(--color-primary)",
-				"primary-darker": "var(--color-primary-darker)",
-				"primary-lighter": "var(--color-primary-lighter)",
-				"primary-subtle": "var(--color-primary-subtle)",
+				medinfo: {
+					primary: "var(--color-primary)",
+					"primary-darker": "var(--color-primary-darker)",
+					"primary-lighter": "var(--color-primary-lighter)",
+					"primary-subtle": "var(--color-primary-subtle)",
+				},
 			},
 
 			fontFamily: {
 				roboto: ["var(--font-roboto)"],
 				"work-sans": ["var(--font-work-sans)"],
 			},
+
+			borderRadius: {},
 		},
 	},
 
