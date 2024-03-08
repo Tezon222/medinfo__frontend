@@ -1,7 +1,7 @@
 import { cnJoin } from "@/lib/utils/cn";
 import type { Metadata } from "next";
 import { Roboto, Work_Sans } from "next/font/google";
-import "./index.css";
+import "../styles/index.css";
 
 type RootLayoutProps = {
 	children: React.ReactNode;

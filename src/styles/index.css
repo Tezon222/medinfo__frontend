@@ -12,6 +12,7 @@
 		--color-primary-darker: hsl(150, 21%, 17%);
 		--color-primary-lighter: hsl(150, 19%, 48%);
 		--color-primary-subtle: hsl(150, 19%, 48%);
+		--text-body: hsl(0, 0%, 20%);
 	}
 }
 
@@ -59,5 +60,6 @@
 	body {
 		font-size: 1.6rem;
 		font-family: theme("fontFamily.work-sans");
+		color: var(--text-body)
 	}
 }
