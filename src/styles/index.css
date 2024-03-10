@@ -12,6 +12,11 @@
 		--color-primary-darker: hsl(150, 21%, 17%);
 		--color-primary-lighter: hsl(150, 19%, 48%);
 		--color-primary-subtle: hsl(150, 19%, 48%);
+		--color-secondary: hsl(46, 15%, 83%);
+		--color-seconday-darker: hsl(46, 15%, 63%);
+		--color-secondary-lighter: hsl(46, 15%, 92%);
+		--color-secondary-subtle: hsl(46, 15%, 97%);
+
 		--text-body: hsl(0, 0%, 20%);
 	}
 }

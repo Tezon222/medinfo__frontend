@@ -18,6 +18,10 @@ const tailwindConfig = {
 					"primary-darker": "var(--color-primary-darker)",
 					"primary-lighter": "var(--color-primary-lighter)",
 					"primary-subtle": "var(--color-primary-subtle)",
+					secondary: "var(--color-secondary)",
+					"secondary-darker": "var(--color-seconday-darker)",
+					"secondary-lighter": "var(--color-secondary-lighter)",
+					"secondary-subtle": "var(--color-secondary-subtle)",
 				},
 			},
 
@@ -25,8 +29,6 @@ const tailwindConfig = {
 				roboto: ["var(--font-roboto)"],
 				"work-sans": ["var(--font-work-sans)"],
 			},
-
-			borderRadius: {},
 		},
 	},
 

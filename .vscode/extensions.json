@@ -2,6 +2,7 @@
 	"recommendations": [
 		"dbaeumer.vscode-eslint", // ESLint
 		"esbenp.prettier-vscode", // Prettier - Code formatter
-		"ionutvmi.path-autocomplete" // Path Intellisense,
+		"ionutvmi.path-autocomplete", // Path Intellisense,
+		"antfu.iconify" // Intellisene for icons used with IconBox component
 	]
 }

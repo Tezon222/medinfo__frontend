@@ -1,6 +1,5 @@
-import HamBurgerIcon from "@public/assets/HamBurgerIcon";
-import Logo from "@public/assets/Logo";
-import SearchIcon from "@public/assets/SearchIcon";
+import { HamburgerIcon, SearchIcon } from "@/components/icons";
+import Logo from "./Logo/Logo";
 
 function NavBar() {
 	return (
@@ -17,17 +16,17 @@ function NavBar() {
 			</nav>
 
 			<div className="flex shrink-0 items-center gap-[3.2rem] max-lg:hidden">
-				<button className="border-medinfo-primary rounded-[8px] border-2 lg:p-[2rem]">
+				<button className="rounded-[8px] border-2 border-medinfo-primary lg:p-[2rem]">
 					<SearchIcon />
 				</button>
 
-				<button className="bg-medinfo-primary rounded-[8px] font-medium text-white lg:px-[3.2rem] lg:py-[1.8rem] lg:text-[2rem]">
+				<button className="rounded-[8px] bg-medinfo-primary font-medium text-white lg:px-[3.2rem] lg:py-[1.8rem] lg:text-[2rem]">
 					Join Us
 				</button>
 			</div>
 
 			<button className="lg:hidden">
-				<HamBurgerIcon />
+				<HamburgerIcon />
 			</button>
 		</header>
 	);

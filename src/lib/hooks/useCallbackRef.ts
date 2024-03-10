@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useRef } from "react";
+import { useIsomorphicEffect } from "./useIsomorphicEffect";
 
 const useCallbackRef = <TParams, TResult>(callbackFn: (...params: TParams[]) => TResult) => {
 	const callbackRef = useRef(callbackFn);
 
-	useEffect(() => {
+	useIsomorphicEffect(() => {
 		callbackRef.current = callbackFn;
 	}, [callbackFn]);
 

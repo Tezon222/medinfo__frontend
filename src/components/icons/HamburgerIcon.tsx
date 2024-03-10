@@ -1,4 +1,4 @@
-const HamBurgerIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const HamburgerIcon = (props: React.SVGProps<SVGSVGElement>) => (
 	<svg
 		width="24"
 		height="24"
@@ -22,4 +22,4 @@ const HamBurgerIcon = (props: React.SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export default HamBurgerIcon;
+export default HamburgerIcon;
