@@ -1,4 +1,4 @@
-import { CopyrightIcon } from "../icons";
+import { CopyrightIcon } from "../svg-icons";
 import IconBox from "./IconBox";
 import Logo from "./Logo/Logo";
 

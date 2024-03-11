@@ -1,4 +1,4 @@
-import { HamburgerIcon, SearchIcon } from "@/components/icons";
+import { HamburgerIcon, SearchIcon } from "@/components/svg-icons";
 import Logo from "./Logo/Logo";
 
 function NavBar() {
