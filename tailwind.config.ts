@@ -29,6 +29,8 @@ const tailwindConfig = {
 				roboto: ["var(--font-roboto)"],
 				"work-sans": ["var(--font-work-sans)"],
 			},
+
+			borderRadius: {},
 		},
 	},
 
