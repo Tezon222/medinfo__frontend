@@ -1,6 +1,6 @@
-import { CopyrightIcon } from "../svg-icons";
-import IconBox from "./IconBox";
-import Logo from "./Logo/Logo";
+import { CopyrightIcon } from "@/components/icons";
+import { IconBox } from "@/components/primitives";
+import { Logo } from "@/components/ui";
 
 function Footer() {
 	return (

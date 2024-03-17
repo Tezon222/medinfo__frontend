@@ -1,10 +1,10 @@
-import { useCallback, useRef } from "react";
-import { useIsomorphicEffect } from "./useIsomorphicEffect";
+import { useCallback, useLayoutEffect, useRef } from "react";
+import type { CallbackFn } from "../type-helpers/global-type-helpers";
 
-const useCallbackRef = <TParams, TResult>(callbackFn: (...params: TParams[]) => TResult) => {
+const useCallbackRef = <TParams, TResult = unknown>(callbackFn: CallbackFn<TParams, TResult>) => {
 	const callbackRef = useRef(callbackFn);
 
-	useIsomorphicEffect(() => {
+	useLayoutEffect(() => {
 		callbackRef.current = callbackFn;
 	}, [callbackFn]);
 

@@ -1,4 +1,4 @@
-import { Footer, NavBar } from "@/components/common";
+import { Footer, NavBar } from "@/app/(app)/_components";
 
 function GlobalLayout({ children }: { children: React.ReactNode }) {
 	return (
