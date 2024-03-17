@@ -28,11 +28,31 @@ const advantages = [
 ];
 
 const FAQs = [
-	{ question: "Question 1", answer: "Answer 1" },
-	{ question: "Question 2", answer: "Answer 2" },
-	{ question: "Question 3", answer: "Answer 3" },
-	{ question: "Question 4", answer: "Answer 4" },
-	{ question: "Question 5", answer: "Answer 5" },
+	{
+		question: "Question 1",
+		answer:
+			"Lorem ipsum dolor sit amet consectetur. Proin tortor tortor varius tincidunt in commodo sagittis quam. Neque eget non urna pellentesque erat. Dui mus integer vitae cras libero dapibus adipiscing. Gravida ultrices tempor.",
+	},
+	{
+		question: "Question 2",
+		answer:
+			"Lorem ipsum dolor sit amet consectetur. Proin tortor tortor varius tincidunt in commodo sagittis quam. Neque eget non urna pellentesque erat. Dui mus integer vitae cras libero dapibus adipiscing",
+	},
+	{
+		question: "Question 3",
+		answer:
+			"Lorem ipsum dolor sit amet consectetur. Proin tortor torto tincidunt in commodo sagittis quam. Neque eget non urna pellentesque erat. Dui mus integer vitae cras libero dapibus adipiscing. Gravida ultrices tempor.",
+	},
+	{
+		question: "Question 4",
+		answer:
+			"Lorem ipsum dolor sit ame Proin tortor tortor varius tincidunt in commodo sagittis quam. Neque eget non urna pellentesque erat. Dui mus integer vitae cras libero dapibus adipiscing",
+	},
+	{
+		question: "Question 5",
+		answer:
+			"Lorem ipsum dolor sit amet consectetur tortor tortor varius tincidunt in commodo sagittis quam. Neque eget non urna pellentesque erat. Dui mus integer vitae cras libero dapibus adipiscing. Gravida ultrices tempor.",
+	},
 ];
 
 function HomePage() {
@@ -47,8 +67,9 @@ function HomePage() {
 	return (
 		<main className="mx-auto max-w-[40rem] space-y-[5.6rem] px-[2.4rem] py-[5.6rem]">
 			<section>
-				<h1 className="text-[3.2rem] font-bold leading-[4rem] text-medinfo-primary">
-					Free access to knowledge and an easy chit-chat with the best doctors
+				<h1 className="text-[3.2rem] font-bold leading-[4rem] text-medinfo-primary [&:hover>span]:text-medinfo-secondary-darker [&>span]:[transition:color_250ms_ease-in-out]">
+					Free <span>access</span> to knowledge and an easy chit-chat with the best{" "}
+					<span>doctors</span>
 				</h1>
 
 				<p className="mt-[1.5rem]">
@@ -155,13 +176,13 @@ function HomePage() {
 
 				<CardList
 					{...dragScrollProps}
-					className="mt-[2.4rem] flex cursor-grab snap-x snap-proximity gap-[2rem] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+					className="mt-[2.4rem] flex cursor-grab gap-[2rem] overflow-x-auto supports-[scrollbar-width]:[scrollbar-width:none] max-sm:snap-x max-sm:snap-mandatory [&::-webkit-scrollbar]:hidden"
 					each={[...Array(4).keys()]}
 					render={(item) => (
 						<Card
 							as="li"
 							key={item}
-							className="w-[16.1rem] shrink-0 snap-center space-y-[1.2rem] rounded-[16px] pb-[1.2rem]"
+							className="w-[16.1rem] shrink-0 snap-center space-y-[1.2rem] rounded-[16px] border-[1.4px] border-medinfo-light-1 pb-[1.2rem]"
 						>
 							<Card.Header className="h-[11.7rem]">
 								<Image
@@ -179,7 +200,7 @@ function HomePage() {
 							</Card.Content>
 
 							<Card.Footer className="px-[1.2rem]" asChild={true}>
-								<Link href="/" className="flex items-center justify-between">
+								<Link href="/" className="flex items-center gap-[1.6rem]">
 									Learn More
 									<IconBox icon="material-symbols:play-arrow" className="text-[2rem]" />
 								</Link>
@@ -198,20 +219,23 @@ function HomePage() {
 					<FAQList
 						each={FAQs}
 						render={(FAQ) => (
-							<Accordion.Item key={FAQ.question} value={FAQ.answer}>
-								<Accordion.Trigger
-									icon="fluent:chevron-circle-down-12-filled"
-									classNames={{
-										base: "text-[2.2rem] min-h-[6.8rem] rounded-[16px] text-medinfo-primary border border-medinfo-primary-darker py-[1.5rem] px-[2.4rem]",
-										icon: "size-[3.6rem]",
-									}}
-								>
-									{FAQ.question}
-								</Accordion.Trigger>
+							<Accordion.Item key={FAQ.question} value={FAQ.answer} asChild={true}>
+								<li>
+									<Accordion.Trigger
+										icon="fluent:chevron-circle-down-12-filled"
+										classNames={{
+											base: "text-[2.2rem] min-h-[6.8rem] rounded-t-[16px] text-medinfo-primary border-x border-t border-medinfo-primary-darker data-[state=closed]:rounded-b-[16px] data-[state=closed]:border-b py-[1.5rem] px-[2.4rem]",
+											icon: "size-[3.6rem]",
+										}}
+									>
+										{FAQ.question}
+									</Accordion.Trigger>
 
-								<Accordion.Content className="px-[2.4rem] py-[1.6rem]">
-									{FAQ.answer}
-								</Accordion.Content>
+									<Accordion.Content className="rounded-b-[16px] border-x border-b border-medinfo-primary-darker px-[2.4rem] pb-[2.4rem] pt-0">
+										<hr className="mb-[1.6rem] h-[2px] bg-medinfo-secondary" />
+										{FAQ.answer}
+									</Accordion.Content>
+								</li>
 							</Accordion.Item>
 						)}
 						className="mt-[2.4rem] w-full space-y-[0.8rem]"

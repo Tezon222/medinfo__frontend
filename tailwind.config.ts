@@ -18,26 +18,31 @@ const tailwindConfig = {
 					"primary-darker": "var(--color-primary-darker)",
 					"primary-lighter": "var(--color-primary-lighter)",
 					"primary-subtle": "var(--color-primary-subtle)",
+
 					secondary: "var(--color-secondary)",
 					"secondary-darker": "var(--color-seconday-darker)",
 					"secondary-lighter": "var(--color-secondary-lighter)",
 					"secondary-subtle": "var(--color-secondary-subtle)",
+
+					"light-1": "var(--color-light-1)",
+					"light-2": "var(--color-light-2)",
+					"light-3": "var(--color-light-3)",
+					"light-4": "var(--color-light-4)",
 				},
 
 				// Shadcn colors
-				background: "hsl(0 0% 100%)",
+				background: "theme(colors.black)",
 				foreground: "hsl(222.2 47.4% 11.2%)",
 				popover: "theme(colors.background)",
-				// eslint-disable-next-line sonarjs/no-duplicate-string
 				primary: "theme(colors.foreground)",
 				"primary-foreground": "hsl(210 40% 98%)",
 				"popover-foreground": "theme(colors.foreground)",
 				accent: "hsl(210 40% 96.1%)",
 				"accent-foreground": "theme(colors.foreground)",
 				input: "hsl(214.3 31.8% 91.4%)",
-				border: "hsl(214.3 31.8% 91.4%)",
+				border: "theme(colors.input)",
 				ring: "hsl(215 20.2% 65.1%)",
-				muted: "hsl(210 40% 96.1%)",
+				muted: "theme(colors.accent)",
 				"muted-foreground": "hsl(215.4 16.3% 46.9%)",
 			},
 

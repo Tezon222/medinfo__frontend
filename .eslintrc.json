@@ -195,6 +195,7 @@
 
 		// SonarJs Rules
 		"sonarjs/prefer-immediate-return": "off",
+		"sonarjs/no-duplicate-string": ["error", { "threshold": 5 }],
 
 		// Tailwind rules
 		"tailwindcss/no-custom-classname": "off",

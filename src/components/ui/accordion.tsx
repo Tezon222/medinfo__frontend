@@ -12,9 +12,7 @@ function AccordionItem(
 ) {
 	const { className, ...restOfProps } = props;
 
-	return (
-		<AccordionPrimitive.Item ref={ref} className={cnMerge("border-b", className)} {...restOfProps} />
-	);
+	return <AccordionPrimitive.Item ref={ref} className={className} {...restOfProps} />;
 }
 
 function AccordionTrigger(
@@ -59,10 +57,13 @@ function AccordionContent(
 	return (
 		<AccordionPrimitive.Content
 			ref={ref}
-			className="overflow-hidden text-[14px] data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+			className={cnMerge(
+				"overflow-hidden py-[16px] text-[14px] data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+				className
+			)}
 			{...restOfProps}
 		>
-			<div className={cnMerge("pb-[16px] pt-0", className)}>{children}</div>
+			{children}
 		</AccordionPrimitive.Content>
 	);
 }

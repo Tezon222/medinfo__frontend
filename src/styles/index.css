@@ -12,10 +12,16 @@
 		--color-primary-darker: hsl(150, 21%, 17%);
 		--color-primary-lighter: hsl(150, 19%, 48%);
 		--color-primary-subtle: hsl(150, 75%, 88%);
+
 		--color-secondary: hsl(46, 15%, 83%);
 		--color-seconday-darker: hsl(46, 15%, 63%);
 		--color-secondary-lighter: hsl(46, 15%, 92%);
 		--color-secondary-subtle: hsl(46, 15%, 97%);
+
+		--color-light-1: hsl(152, 17%, 79%);
+		--color-light-2: hsl(150, 8%, 85%);
+		--color-light-3: hsl(144, 20%, 95%);
+		--color-light-4: hsl(150, 25%, 98%);
 
 		--text-body: hsl(0, 0%, 20%);
 	}

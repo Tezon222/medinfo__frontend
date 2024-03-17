@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { checkDeviceIsMobileOrTablet } from "../utils/check-device-is-mobile-or-tablet";
 import { useCallbackRef } from "./useCallbackRef";
 
 const updateCursor = <TElement extends HTMLElement>(element: TElement) => {
@@ -12,7 +11,6 @@ const resetCursor = <TElement extends HTMLElement>(element: TElement) => {
 	element.classList.add("cursor-grab");
 };
 
-const { isMobileOrTablet } = checkDeviceIsMobileOrTablet();
 
 const useDragScroll = <TElement extends HTMLElement>(options?: { hasMobileSupport: boolean }) => {
 	const { hasMobileSupport = true } = options ?? {};
