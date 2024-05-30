@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { isBrowser } from "../utils/constants";
 import { useConstant } from "./useConstant";
 
-const useScrollObserver = (options: IntersectionObserverInit = {}) => {
+const useNavScroll = (options: IntersectionObserverInit = {}) => {
 	const { rootMargin = "10px 0px 0px 0px", ...restOfOptions } = options;
 
-	const observedItemRef = useRef<HTMLElement>(null);
+	const headerRef = useRef<HTMLElement>(null);
+
 	const [isScrolled, setIsScrolled] = useState(false);
 
-	const observer = useConstant(
+	const headerObserver = useConstant(
 		() =>
 			isBrowser &&
 			new IntersectionObserver(
@@ -21,22 +22,21 @@ const useScrollObserver = (options: IntersectionObserverInit = {}) => {
 	);
 
 	useEffect(() => {
-		if (!observedItemRef.current || !observer) return;
+		if (!headerRef.current || !headerObserver) return;
 
 		const scrollWatcher = document.createElement("span");
 		scrollWatcher.dataset.scrollWatcher = "";
 
-		observedItemRef.current.before(scrollWatcher);
-
-		observer.observe(scrollWatcher);
+		headerRef.current.before(scrollWatcher);
+		headerObserver.observe(scrollWatcher);
 
 		return () => {
 			scrollWatcher.remove();
-			observer.disconnect();
+			headerObserver.disconnect();
 		};
-	}, [observer]);
+	}, [headerObserver]);
 
-	return { isScrolled, observedItemRef };
+	return { isScrolled, headerRef };
 };
 
-export default useScrollObserver;
+export { useNavScroll };
