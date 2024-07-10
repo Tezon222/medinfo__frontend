@@ -1,9 +1,9 @@
-/* eslint-disable unicorn/no-abusive-eslint-disable */
-/* eslint-disable */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import eslintReact from "@eslint-react/eslint-plugin";
 import { fixupPluginRules } from "@eslint/compat";
 import eslintJs from "@eslint/js";
-import { Linter } from "eslint";
 import eslintImportX from "eslint-plugin-import-x";
 import eslintReactHooks from "eslint-plugin-react-hooks";
 import eslintSonarjs from "eslint-plugin-sonarjs";
@@ -168,7 +168,6 @@ const eslintConfigArray = [
 			"vars-on-top": "error",
 			"max-depth": ["error", 1],
 			"logical-assignment-operators": "warn",
-			"no-useless-assignment": "warn",
 			"operator-assignment": "warn",
 			"no-implicit-coercion": "warn",
 			"prefer-object-spread": "warn",
@@ -249,9 +248,9 @@ const eslintConfigArray = [
 			"import-x/prefer-default-export": "off",
 			"import-x/no-cycle": ["error", { ignoreExternal: true, maxDepth: 3 }],
 			"import-x/no-unresolved": "off",
+			"import-x/namespace": "off",
 			"import-x/export": "error",
 			"import-x/no-named-as-default": "error",
-			"import-x/namespace": "off",
 			"import-x/no-named-as-default-member": "error",
 			"import-x/no-mutable-exports": "error",
 			"import-x/first": "error",
@@ -353,16 +352,6 @@ const eslintConfigArray = [
 		rules: {
 			"tailwindcss/no-contradicting-classname": "off", // Turned off cuz tw intellisense already handles this
 			"tailwindcss/no-unnecessary-arbitrary-value": "off", // Turned off cuz using a custom root font-size (10px)
-		},
-	},
-
-	// == TanStack Query Rules
-	{
-		plugins: {
-			"@tanstack/query": fixupPluginRules(eslintQuery),
-		},
-		rules: {
-			...eslintQuery.configs.recommended.rules,
 		},
 	},
 ];
