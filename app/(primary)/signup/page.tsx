@@ -16,7 +16,7 @@ function SignUpPage() {
 			password: "",
 			confirmPassword: "",
 			specialty: "",
-			license: [],
+			license: null,
 			country: "",
 			photo: null,
 		},
@@ -218,9 +218,7 @@ function SignUpPage() {
 									</Form.Label>
 
 									<Form.Controller
-										render={({ field }) => (
-											<DropZoneInput value={field.value} onChange={field.onChange} />
-										)}
+										render={({ field }) => <DropZoneInput onChange={field.onChange} />}
 									/>
 								</Form.Item>
 							</Show>
