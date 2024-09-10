@@ -1,12 +1,12 @@
 "use client";
 
+import { HamburgerIcon, NotificationIcon, SearchIcon, XIcon } from "@/components/icons";
 import { usePathname } from "next/navigation";
-import MobileNavigation from "./MobileNavigation";
 import { menuItems } from "./SidebarLinks";
 import { Logo } from "@/components/common";
 import { Button } from "@/components/ui";
 import { useToggle } from "@zayne-labs/toolkit/react";
-import { HamburgerIcon, NotificationIcon, SearchIcon, XIcon } from "@/components/icons";
+import MobileNavigation from "./MobileNavigation";
 
 const Header = () => {
 	const pathName = usePathname();
@@ -21,18 +21,19 @@ const Header = () => {
 				className="sticky top-0 z-10 hidden items-center justify-between bg-white px-[40px] py-[16px]
 					shadow-md lg:flex"
 			>
+				<div className="text-[32px] font-semibold">{activeTitle ?? "Community"}</div>
 				<div className="relative items-center space-x-4">
 					<SearchIcon type="green" className="absolute left-8 top-2" />
 					<input
 						type="text"
 						placeholder="search"
 						className="w-[400px] rounded-[8px] border border-medinfo-primary-main px-12 py-2
-							text-medinfo-body-color"
+							text-[#414141]"
 					/>
 				</div>
 				<div className="flex items-center space-x-[40px]">
 					<NotificationIcon />
-					<div className="size-[40px] rounded-full bg-gray-300" />
+					<div className="size-[40px] rounded-full bg-gray-500" />
 				</div>
 			</header>
 			{/* mobile view  */}
