@@ -1,1 +1,0 @@
-# medinfo__frontend
