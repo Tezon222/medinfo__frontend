@@ -1,6 +1,10 @@
-import { IconBox, NavLink } from "@/components/common";
+"use client";
+
+import { IconBox, NavLink, getElementList } from "@/components/common";
 import { Card } from "@/components/ui";
-import { cnMerge } from "@/lib/utils/cn";
+import type { TipsArrayType } from "@/lib/types";
+import { cnJoin, cnMerge } from "@/lib/utils/cn";
+import { useDragScroll } from "@zayne-labs/toolkit/react";
 import Image from "next/image";
 
 export type DailyTipCardProps = {
@@ -10,7 +14,7 @@ export type DailyTipCardProps = {
 	title: string;
 };
 
-function DailyTipCard({ className, id, imageUrl, title }: DailyTipCardProps) {
+export function DailyTipCard({ className, id, imageUrl, title }: DailyTipCardProps) {
 	return (
 		<Card
 			as="li"
@@ -20,9 +24,9 @@ function DailyTipCard({ className, id, imageUrl, title }: DailyTipCardProps) {
 				className
 			)}
 		>
-			<Card.Header className="min-h-[117px] md:max-h-[176px]">
+			<Card.Header className="h-[117px] md:h-[176px]">
 				<Image
-					className="max-h-full rounded-t-[16px] object-cover"
+					className="h-full rounded-t-[16px] object-cover"
 					src={imageUrl}
 					alt=""
 					draggable={false}
@@ -31,7 +35,7 @@ function DailyTipCard({ className, id, imageUrl, title }: DailyTipCardProps) {
 				/>
 			</Card.Header>
 
-			<Card.Content className="px-3">{title}</Card.Content>
+			<Card.Content className="grow px-3">{title}</Card.Content>
 
 			<Card.Footer className="px-3" asChild={true}>
 				<NavLink href={`/daily-tips/${id}`} className="flex items-center gap-4">
@@ -42,4 +46,52 @@ function DailyTipCard({ className, id, imageUrl, title }: DailyTipCardProps) {
 		</Card>
 	);
 }
-export default DailyTipCard;
+
+export function TipsCardList({ tips }: { tips: TipsArrayType }) {
+	const { dragScrollProps, dragContainerClasses, dragItemClasses } = useDragScroll<HTMLUListElement>();
+
+	const [CardList] = getElementList();
+
+	return (
+		<CardList
+			{...dragScrollProps}
+			className={cnJoin("mt-6 select-none gap-5 md:mt-14 md:justify-between", dragContainerClasses)}
+			each={tips}
+			render={(tip) => (
+				<DailyTipCard
+					key={tip.id}
+					id={tip.id}
+					imageUrl={tip.imageUrl}
+					title={tip.title}
+					className={dragItemClasses}
+				/>
+			)}
+		/>
+	);
+}
+
+export const HealthFinderLogo = ({ lastUpdated }: { lastUpdated: string }) => (
+	<>
+		<div className="mt-7 flex items-center gap-2">
+			<p className="font-roboto text-[18px] font-medium italic text-medinfo-dark-2">Source: </p>
+
+			<a
+				className="inline-block h-auto w-[200px]"
+				href="https://health.gov/myhealthfinder"
+				title="MyHealthfinder"
+			>
+				<Image
+					className="size-full"
+					src="https://health.gov/themes/custom/healthfinder/images/MyHF.svg"
+					alt="MyHealthfinder"
+					width={50}
+					height={50}
+				/>
+			</a>
+		</div>
+
+		<p className="font-roboto text-[18px] font-medium italic text-medinfo-dark-2">
+			Last Updated: {lastUpdated}
+		</p>
+	</>
+);
